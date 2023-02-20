@@ -1,2 +1,5 @@
 # Project exclude paths
 /out/
+
+.idea
+Course_by_java.iml
