@@ -9,6 +9,6 @@ public class Sphere extends GeometricFigure {
         this.weight = weight;
     }
     public double getVolume() {
-        return (int) (4 / 3 * 3.14 * Math.pow(radius, 3));
+        return  (4 / 3 * 3.14 * Math.pow(radius, 3));
     }
 }

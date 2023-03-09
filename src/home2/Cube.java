@@ -7,6 +7,6 @@ public class Cube extends GeometricFigure {
         this.weight = weight;
     }
     public double getVolume() {
-        return (int) Math.pow(side, 3);
+        return  Math.pow(side, 3);
     }
 }
