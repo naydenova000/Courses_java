@@ -8,8 +8,8 @@ public class RunnableDemoApp {
 
     public static void main(String[] args) {
         // Thi's constructor
-        Thread player1 = new Player("Игрок1");
-        Thread player2 = new Player("Игрок2");
+        Thread player1 = new Player("Player 1");
+        Thread player2 = new Player("Player 2");
         player1.start();
         player2.start();
 
