@@ -8,6 +8,8 @@ class Player extends Thread {
         while (RunnableDemoApp.count < RunnableDemoApp.MAX_COUNT) {
             // Если использует 1 поток метод, 2ой поток заблокирован
             synchronized (RunnableDemoApp.lock) {
+//                RunnableDemoApp.count++;
+                System.out.println(Thread.currentThread().getName() + " : " + RunnableDemoApp.count);
                 RunnableDemoApp.count++;
             }
         }
@@ -17,5 +19,6 @@ class Player extends Thread {
         super(name);
 
     }
+
 
 }

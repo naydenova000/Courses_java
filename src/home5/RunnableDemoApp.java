@@ -13,8 +13,8 @@ public class RunnableDemoApp {
         player1.start();
         player2.start();
 
+        }
     }
-}
 
 
 
