@@ -1,4 +1,4 @@
-package home5;
+package thread;
 
 class Player extends Thread {
     String name;
