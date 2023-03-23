@@ -14,7 +14,7 @@ class Player extends Thread {
     }
 
     public Player(String name){
-        this.name = name;
+        super(name);
 
     }
 
