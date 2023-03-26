@@ -1,19 +1,29 @@
 package thread;
 
 class Player extends Thread {
-    String name;
 
     @Override
     public void run() {
         while (RunnableDemoApp.count < RunnableDemoApp.MAX_COUNT) {
-            // Если использует 1 поток метод, 2ой поток заблокирован
             synchronized (RunnableDemoApp.lock) {
-//                RunnableDemoApp.count++;
-                System.out.println(Thread.currentThread().getName() + " : " + RunnableDemoApp.count);
-                RunnableDemoApp.count++;
+                try {
+                    RunnableDemoApp.count++;
+                    doSomething();
+                } catch (InterruptedException e){
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
+
+    public synchronized void doSomething() throws InterruptedException {
+        notify();
+        System.out.println(Thread.currentThread().getName() + ": I'm late " + RunnableDemoApp.count);
+        wait();
+        System.out.println(Thread.currentThread().getName() + ": I'm winner " + RunnableDemoApp.count);
+    }
+
+
 
     public Player(String name){
         super(name);
