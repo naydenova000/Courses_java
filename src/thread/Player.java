@@ -23,12 +23,8 @@ class Player extends Thread {
         System.out.println(Thread.currentThread().getName() + ": I'm winner " + RunnableDemoApp.count);
     }
 
-
-
     public Player(String name){
         super(name);
 
     }
-
-
 }
