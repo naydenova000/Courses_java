@@ -4,19 +4,22 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+
 public class Server {
+    public static final String SERVER_URL = "127.0.0.1";
     public static final int SERVER_PORT = 8080;
     public static final String FILE_TO_SEND = "/Users/katya/Downloads/photo_naydenova.jpg";
     private static DataOutputStream dataOutputStream = null;
     private static DataInputStream dataInputStream = null;
 
-    private String boundary = "===ENaydenova===";
+    public static String boundary = "===ENaydenova===";
+
 
     public static void main(String[] args)
     {
         // Here we define Server Socket running on port 900
         try (ServerSocket serverSocket = new ServerSocket(SERVER_PORT)) {
-            System.out.println("Server is Starting in Port 900");
+            System.out.println("Server is Starting in Port " + Server.SERVER_PORT);
             // Accept the Client request using accept method
             Socket clientSocket = serverSocket.accept();
             System.out.println("Connected");
@@ -24,7 +27,7 @@ public class Server {
             dataOutputStream = new DataOutputStream(clientSocket.getOutputStream());
             // Here we call receiveFile define new for that
             // file
-            receiveFile("NewFile1.pdf");
+            receiveFile(Server.FILE_TO_SEND);
 
             dataInputStream.close();
             dataOutputStream.close();

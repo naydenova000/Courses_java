@@ -3,12 +3,19 @@ package client;
 import java.io.*;
 import java.net.Socket;
 
+
+import static client.Server.SERVER_URL;
+
 public class Client {
     private static DataOutputStream dataOutputStream = null;
     private static DataInputStream dataInputStream = null;
 
-    public static void main(String[] args) {
-        try (Socket socket = new Socket("127.0.0.1", Server.SERVER_PORT)) {
+    public static void main(String[] args){
+//        URLConnection connection = new URL(SERVER_URL).openConnection();
+//        connection.setDoOutput(true);
+//        connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
+
+        try (Socket socket = new Socket(SERVER_URL, Server.SERVER_PORT)) {
             dataInputStream = new DataInputStream(socket.getInputStream());
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
             System.out.println("Sending the File to the Server");
